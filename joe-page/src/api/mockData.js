@@ -30,4 +30,23 @@ export const mockTestStatus = {
       task_id: "16206"
     }
   ]
-}; 
+};
+
+export const mockDevices = [
+  {
+    name: 'Device 1',
+    status: 'Running'
+  },
+  {
+    name: 'Device 2',
+    status: 'Running'
+  },
+  {
+    name: 'Device 3',
+    status: 'Running'
+  },
+  {
+    name: 'Device 4',
+    status: 'Running'
+  }
+]; 

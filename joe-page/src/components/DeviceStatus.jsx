@@ -1,69 +1,48 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
 
 const DeviceStatus = ({ deviceName, status, onRunTest, onStopTest, onInstallApk }) => {
   const isRunning = status === 'Running';
   
   return (
-    <Box sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      p: 2,
-      borderBottom: '1px solid #eee',
-      '&:last-child': {
-        borderBottom: 'none'
-      }
-    }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Typography variant="h6" component="div">
-          {deviceName}
-        </Typography>
-        <Typography 
-          sx={{ 
-            color: isRunning ? 'success.main' : 'error.main',
+    <div className="card">
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '1rem'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <h3 style={{ margin: 0 }}>{deviceName}</h3>
+          <span style={{ 
+            color: isRunning ? 'var(--accent-color)' : '#dc3545',
             fontWeight: 500
-          }}
-        >
-          {isRunning ? 'Running' : 'Stopped'}
-        </Typography>
-      </Box>
-      
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={onRunTest}
-          sx={{
-            bgcolor: 'background.paper',
-            minWidth: '80px'
-          }}
-        >
-          Start
-        </Button>
-        <Button
-          variant="contained"
-          color="error"
-          onClick={onStopTest}
-          sx={{
-            minWidth: '80px'
-          }}
-        >
-          Stop
-        </Button>
-        <Button
-          variant="outlined"
-          color="info"
-          onClick={onInstallApk}
-          sx={{
-            bgcolor: 'background.paper',
-            minWidth: '80px'
-          }}
-        >
-          Install
-        </Button>
-      </Box>
-    </Box>
+          }}>
+            {isRunning ? 'Running' : 'Stopped'}
+          </span>
+        </div>
+        
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            className="button outline"
+            onClick={onRunTest}
+          >
+            START
+          </button>
+          <button
+            className="button danger"
+            onClick={onStopTest}
+          >
+            STOP
+          </button>
+          <button
+            className="button outline"
+            onClick={onInstallApk}
+          >
+            INSTALL
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
